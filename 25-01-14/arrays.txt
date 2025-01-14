@@ -1,0 +1,9 @@
+DECLARE myArr : ARRAY[0:9] OF INTEGER
+
+FOR i <-- 0 TO 9
+    myArr[i] <-- ""
+NEXT i
+
+FOR i <-- 0 TO 9
+    OUTPUT myArr[i]
+NEXT i

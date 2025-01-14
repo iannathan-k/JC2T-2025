@@ -1,0 +1,18 @@
+DECLARE array : ARRAY[0:2] OF INTEGER
+DECLARE flag : BOOLEAN
+DECLARE toFind : INTEGER
+
+flag <-- FALSE
+PRINT("Value to find?: ")
+INPUT toFind
+
+FOR i <-- 0 TO 9
+    IF array[i] = toFind THEN
+        flag <-- True
+NEXT i
+
+IF Flag = TRUE THEN
+    OUTPUT "Item Found!"
+ELSE
+    OUTPUT "Not Found"
+ENDIF
