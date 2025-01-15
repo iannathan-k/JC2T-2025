@@ -1,0 +1,35 @@
+DECLARE array : ARRAY[0:7] OF INTEGER
+DECLARE low : INTEGER
+DECLARE high : INTEGER
+DECLARE mid : INTEGER
+DECLARE search_element : INTEGER
+DECLARE found : BOOLEAN
+DECLARE flag : BOOLEAN
+
+low <-- 0
+high <-- LENGTH(array) - 1
+INPUT search_element
+found <-- FALSE
+flag <-- TRUE
+
+WHILE flag = True
+    mid <-- (low + high) DIV 2
+    IF array[mid] = search_element THEN
+        flag <-- FALSE
+        found <-- TRUE
+    ELSE IF search_element > array[mid] THEN
+        low <-- mid + 1
+    ELSE
+        high <-- mid - 1
+    ENDIF
+
+    IF mid = (low + high) DIV 2 THEN
+        flag <-- FALSE
+    ENDIF
+ENDWHILE
+
+IF found = TRUE THEN
+    OUTPUT "Found!"
+ELSE
+    OUTPUT "Not Found"
+ENDIF
