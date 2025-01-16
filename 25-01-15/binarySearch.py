@@ -16,7 +16,7 @@ while flag:
     else:
         high = mid - 1
 
-    if mid == (low + high) // 2:
+    if low > high:
         flag = False
 
 if found:

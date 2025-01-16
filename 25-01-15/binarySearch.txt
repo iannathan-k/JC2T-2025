@@ -23,7 +23,7 @@ WHILE flag = True
         high <-- mid - 1
     ENDIF
 
-    IF mid = (low + high) DIV 2 THEN
+    IF low > high THEN
         flag <-- FALSE
     ENDIF
 ENDWHILE

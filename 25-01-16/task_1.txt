@@ -1,0 +1,17 @@
+total <-- 0
+highest <-- array[0]
+lowest <-- array[0]
+
+FOR i <-- 0 TO LENGTH(array)
+    total <-- total + array[i]
+    IF array[i] > highest THEN
+        highest <-- array[i]
+    ENDIF
+    IF array[i] < lowest THEN
+        lowest <-- array[i]
+    ENDIF
+NEXT i
+
+OUTPUT "Total: ", total
+OUTPUT "Highest: ", highest
+OUTPUT "Lowest: ", lowest
