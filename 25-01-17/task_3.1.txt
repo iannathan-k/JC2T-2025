@@ -1,0 +1,13 @@
+DECLARE array : ARRAY[0:9, 0:9] OF INTEGER
+DECLARE found : BOOLEAN
+DECLARE search_value : INTEGER
+DECLARE row : INTEGER
+DECLARE col : INTEGER
+
+found <-- FALSE
+INPUT search_value
+row <-- 0
+
+WHILE row < LENGTH(array) AND found = FALSE
+    FOR col <-- 0 TO LENGTH(array) - 1
+        

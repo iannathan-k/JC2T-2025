@@ -1,1 +1,4 @@
 DECLARE array : ARRAY[0:9, 0:9] OF INTEGER
+DECLARE column_totals : ARRAY[0:9] OF INTEGER
+DECLARE column_high : ARRAY[0:9] OF INTEGER
+
