@@ -1,0 +1,16 @@
+DECLARE array : ARRAY[0:9] OF INTEGER
+DECLARE i : INTEGER
+DECLARE j : INTEGER
+DECLARE key : INTEGER
+DECLARE temp : INTEGER
+
+FOR i <-- 1 TO LENGTH(array) - 1
+    key <-- array[i]
+    j <-- i - 1
+    WHILE key < array[j] AND j >= 0
+        temp <-- array[j]
+        array[j] <-- array[j + 1]
+        array[j + 1] <-- temp
+        j <-- j - 1
+    ENDWHILE
+NEXT i
