@@ -1,0 +1,26 @@
+DECLARE stack : ARRAY[0:9] OF INTEGER
+DECLARE STACK_FULL : INTEGER
+DECLARE top : INTEGER
+STACK_FULL <-- LENGTH(stack)
+top <-- -1
+
+PROCEDURE pushStack(item : INTEGER)
+    IF LENGTH(stack) = STACK_FULL THEN
+        OUTPUT "STACK IS FULL"
+    ELSE
+        top <-- top + 1
+        stack[top] <-- item
+    ENDIF
+ENDPROCEDURE
+
+FUNCTION popStack() RETURNS INTEGER
+    DECLARE value : INTEGER
+    IF top = -1 THEN
+        OUTPUT "STACK IS EMPTY"
+        RETURN -1
+    ELSE
+        value <-- stack[top]
+        top <-- top - 1
+        RETURN value
+    ENDIF
+ENDFUNCTION
