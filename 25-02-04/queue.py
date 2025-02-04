@@ -35,26 +35,3 @@ def dequeue():
         front += 1
 
     return value
-
-print(queue)
-print(dequeue())
-
-print(queue)
-enqueue(4)
-print(queue)
-enqueue(3)
-print(queue)
-enqueue(2)
-print(queue)
-enqueue(1)
-print(queue)
-enqueue(8)
-
-print(queue)
-print("element:", dequeue())
-print(queue)
-print("element:", dequeue())
-
-print(queue)
-enqueue(9)
-print(queue)
