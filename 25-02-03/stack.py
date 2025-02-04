@@ -4,7 +4,7 @@ top = -1
 
 def pushStack(item):
     global top
-    if len(stack) == STACK_FULL:
+    if top == STACK_FULL:
         print("Cannot push!")
     else:
         top += 1

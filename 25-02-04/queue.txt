@@ -1,0 +1,43 @@
+DECLARE queue : ARRAY[0:9] OF INTEGER
+DECLARE front : INTEGER
+DECLARE rear : INTEGER
+DECLARE queue_length : INTEGER
+DECLARE QUEUE_FULL : INTEGER
+
+front <-- 0
+rear <-- -1
+queue_length <-- 0
+QUEUE_FULL <-- LENGTH(queue)
+
+PROCEDURE enqueue(item : INTEGER)
+    IF queue_length = QUEUE_FULL THEN
+        OUTPUT "Queue Full!"
+    ELSE
+        IF rear = QUEUE_FULL THEN
+            rear <-- 0
+        ELSE
+            rear <-- rear + 1
+        ENDIF
+
+        queue[rear] <-- item
+        queue_length <-- queue_length + 1
+    ENDIF
+ENDPROCEDURE
+
+FUNCTION dequeue() RETURNS INTEGER
+    DECLARE value : INTEGER
+    IF queue_length = 0 THEN
+        OUTPUT "Queue Empty"
+        RETURN -1
+    ENDIF
+
+    value <-- queue[front]
+    queue_length <-- queue_length - 1
+
+    IF front = QUEUE_FULL - 1 THEN
+        front <-- 0
+    ELSE
+        front <-- front + 1
+    ENDIF
+
+    RETURN value
