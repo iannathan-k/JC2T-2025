@@ -5,9 +5,11 @@ queue_length = 0
 QUEUE_FULL = len(queue)
 
 def isEmpty():
+    global queue_length
     return queue_length == 0
 
 def isFull():
+    global queue_length
     return queue_length == QUEUE_FULL
 
 def enqueue(item):
