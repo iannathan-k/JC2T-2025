@@ -9,8 +9,16 @@ rear <-- -1
 queue_length <-- 0
 QUEUE_FULL <-- LENGTH(queue)
 
+FUNCTION isEmpty() RETURNS BOOLEAN
+    RETURN queue_length = 0
+ENDFUNCTION
+
+FUNCTION isFull() RETURNS BOOLEAN
+    RETURN queue_length = QUEUE_FULL
+ENDFUNCTION
+
 PROCEDURE enqueue(item : INTEGER)
-    IF queue_length = QUEUE_FULL THEN
+    IF isFull() THEN
         OUTPUT "Queue Full!"
     ELSE
         IF rear = QUEUE_FULL THEN
@@ -26,7 +34,7 @@ ENDPROCEDURE
 
 FUNCTION dequeue() RETURNS INTEGER
     DECLARE value : INTEGER
-    IF queue_length = 0 THEN
+    IF isEmpty() THEN
         OUTPUT "Queue Empty"
         RETURN -1
     ENDIF
