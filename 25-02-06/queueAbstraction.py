@@ -35,6 +35,7 @@ def dequeue():
         return
     
     value = queue[front]
+    queue[front] = None
     queue_length -= 1
     
     if front == QUEUE_FULL - 1:

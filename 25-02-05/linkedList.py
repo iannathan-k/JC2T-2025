@@ -13,10 +13,9 @@ heap_pointer = 4
 start_pointer = 3
 
 i = start_pointer
-while ll_pointers[i] != -1:
-    i = ll_pointers[i]
+while i != -1:
     print(ll_data[i])
-    
+    i = ll_pointers[i]
 
 print(ll_data)
 print(ll_pointers)
