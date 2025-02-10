@@ -1,0 +1,16 @@
+DECLARE ll_data : ARRAY[0:9] OF INTEGER
+DECLARE ll_pointers : ARRAY[0:9] OF INTEGER
+DECLARE heap_pointer = 0
+DECLARE start_pointer = -1
+
+FUNCTION findElement(num_to_find : INTEGER) RETURNS INTEGER
+    DECLARE i : INTEGER
+    i <-- start_pointer
+    WHILE i <> -1
+        IF ll_data[i] = num_to_find THEN
+            RETURN i
+        ENDIF
+        i <-- ll_pointers[i]
+    ENDWHILE
+    RETURN -1
+ENDFUNCTION
