@@ -1,0 +1,19 @@
+DECLARE ll_data : ARRAY[0:9] OF INTEGER
+DECLARE ll_pointers : ARRAY[0:9] OF INTEGER
+DECLARE heap_pointer : INTEGER
+DECLARE start_pointer : INTEGER
+heap_pointer <-- 0
+start_pointer <-- -1
+
+PROCEDURE addElement(num_to_add : INTEGER)
+    DECLARE last_element : INTEGER
+    IF heap_pointer = -1 THEN
+        OUTPUT "Linked List Full!"
+    ELSE
+        last_element = start_pointer
+        start_pointer = heap_pointer
+        heap_pointer = ll_pointers[heap_pointer]
+        ll_data[start_pointer] = num_to_add
+        ll_pointers[start_pointer] = last_element
+    ENDIF
+ENDPROCEDURE
