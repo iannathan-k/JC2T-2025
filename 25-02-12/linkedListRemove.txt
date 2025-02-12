@@ -1,0 +1,48 @@
+DECLARE ll_data : ARRAY[0:9] OF INTEGER
+DECLARE ll_pointers : ARRAY[0:9] OF INTEGER
+DECLARE heap_pointer : INTEGER
+DECLARE start_pointer : INTEGER
+heap_pointer <-- 0
+start_pointer <-- -1
+
+PROCEDURE removeElement(num_to_remove : INTEGER)
+    DECLARE index : INTEGER
+    DECLARE found_index : INTEGER
+    DECLARE previous_index : INTEGER
+    DECLARE found_previous_index
+    DECLARE old_pointer : INTEGER
+
+    found_index <-- -1
+    previous_index <-- -1
+    
+    index <-- start_pointer
+    WHILE index <> -1 AND found_index = -1
+        IF ll_data[index] = num_to_remove THEN
+            found_index <-- -1
+            found_previous_index <-- previous_index
+        ENDIF
+        previous_index <-- index
+        index <-- ll_pointers[index]
+    ENDWHILE
+
+    IF index = start_pointer THEN
+        previous_index <-- -1
+    ENDIF
+
+    IF start_pointer = -1 THEN
+        OUTPUT "Linked List Empty!"
+    ELSE IF found_index = -1 THEN
+        OUTPUT "Item doesn't exist"
+    ELSE
+        old_pointer <-- ll_pointers[found_index]
+        ll_pointers[found_index] <-- heap_pointer
+
+        IF found_previous_index = -1 THEN
+            start_pointer <-- old_pointer
+        ELSE
+            ll_pointers[found_previous_index] <-- old_pointer
+        ENDIF
+
+        heap_pointer <-- found_index
+    ENDIF
+ENDPROCEDURE
