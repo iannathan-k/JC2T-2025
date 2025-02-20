@@ -1,0 +1,30 @@
+TYPE Node
+    DECLARE left_pointer : INTEGER
+    DECLARE data : INTEGER
+    DECLARE right_pointer : INTEGER
+ENDTYPE
+
+DECLARE tree : ARRAY[0:9] OF Node
+DECLARE root_pointer : INTEGER
+DECLARE heap_pointer : INTEGER
+root_pointer <-- -1
+heap_pointer <-- 0
+
+FUNCTION searchTree(value : INTEGER) RETURNS INTEGER
+    DECLARE current_index : INTEGER
+    DECLARE current_node : Node
+    current_index <-- root_pointer
+
+    WHILE current_index <> -1
+        current_node <-- tree[current_index]
+        IF current_node.data = value THEN
+            RETURN current_index
+        ELSE IF current_node.data < value THEN
+            current_index <-- current_node.left_pointer
+        ELSE
+            current_index <-- current_node.right_pointer
+        ENDIF
+    ENDWHILE
+
+    RETURN -1
+ENDFUNCTION
