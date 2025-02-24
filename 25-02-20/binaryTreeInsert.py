@@ -32,16 +32,18 @@ def insertToTree(value):
     while current_index != -1:
         current_node = tree[current_index]
         if value < current_node[1]:
+            side = True
             current_index = current_node[0]
         elif value > current_node[1]:
+            side = False
             current_index = current_node[2]
 
     # change the pointer of the parent node
     if root_pointer == -1:
         root_pointer = new_item_pointer
-    elif value < current_node[1]:
+    elif side:
         current_node[0] = new_item_pointer
-    elif value > current_node[1]:
+    else:
         current_node[2] = new_item_pointer
 
     # add the value to the location
