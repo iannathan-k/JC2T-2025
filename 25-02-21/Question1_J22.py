@@ -25,11 +25,26 @@ def Push(num_to_push):
 # d)(i) & (ii)
 
 for i in range(11):
-    user_num = input("Enter a number: ")
+    user_num = int(input("Enter a number: "))
 
     if Push(user_num):
         print("Successfully added")
     else:
         print("Stack is full")
 
+printStack()
+
+# e)(i)
+
+def Pop():
+    global StackPointer
+    if StackPointer == 0: return -1
+
+    StackPointer -= 1
+    return StackData[StackPointer]
+
+# (ii)
+
+Pop()
+Pop()
 printStack()
