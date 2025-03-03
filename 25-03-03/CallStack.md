@@ -27,3 +27,11 @@ ENDFUNCTION
 | Continue 3  | fact(2)       | 2   | 2 * 1       | 2            |
 | Continue 2  | fact(3)       | 3   | 3 * 2       | 6            |
 | Continue 1  | fact(4)       | 4   | 4 * 6       | 24           |
+
+## Review
+
+1. The program knows that it has to return control to another function when the call stack is not empty, meaning there is still a function which has called the current one to returnt to.
+
+2. Winding - The process of pushing the return address and the status of the program onto the call stack, occuring until the base case is met.
+
+3. Unwinding - The process of popping the return address and returing control / reinstating the status of the program to the parent function. This occurs once the base case is met
