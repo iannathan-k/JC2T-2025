@@ -2,6 +2,7 @@
 
 ## Pseudocode
 
+```
 FUNCTION fact(num : INTEGER) RETURNS INTEGER
     DECLARE ans : INTEGER
     IF num = 0 THEN
@@ -11,6 +12,7 @@ FUNCTION fact(num : INTEGER) RETURNS INTEGER
     ENDIF
     RETURNS ans
 ENDFUNCTION
+```
 
 ## Trace
 
