@@ -1,0 +1,10 @@
+TYPE Car
+    DECLARE make : STRING
+    DECLARE model : STRING
+    DECLARE color : STRING
+ENDTYPE
+
+DECLARE car1 : Car
+car1.make <-- "Toyota"
+car1.model <-- "2001"
+car1.color <-- "Red"
