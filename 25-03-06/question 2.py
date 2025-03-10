@@ -26,7 +26,7 @@ class Picture:
 
 # d)
 
-picture_array = [None for _ in range(100)] # OF TYPE Picture
+picture_array = [Picture("", 0, 0, "") for _ in range(100)] # OF TYPE Picture
 
 # e)
 
@@ -59,7 +59,7 @@ max_width = int(input("Enter picture width: "))
 max_height = int(input("Enter picture height: "))
 
 for picture in picture_array:
-    if picture == None: break
+    if picture.GetColour() == "": break
     if picture.GetColour().lower() != frame_color.lower(): continue
     if picture.GetWidth() > max_width: continue
     if picture.GetHeight() > max_height: continue
