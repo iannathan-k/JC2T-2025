@@ -2,7 +2,7 @@
 
 ## Important Information
 
-Note that in file handling (Ch. 14), we do not treat these files like text files which we can read or write lines of text to. Instead, we treat them as **Binary Files** which we can store **records** to. Binary files use a **.dat** file exetension.
+Note that in file handling (Ch. 14), we do not treat these files like text files which we can read or write lines of text to. Instead, we treat them as **Binary Files** which we can store **records** to. Binary files use a ***.dat*** file exetension.
 
 This also means you cannot apply *Bubble Sort*, *Linear Search*, *Binary Search* or any other typical algorithm on binary files. This is because these algorithms can only be applied to arrays.
 
@@ -13,6 +13,10 @@ TYPE StudentRecord
     DECLARE StudentID : INTEGER
     DECLARE StudentName : STRING
 ENDTYPE
+
+DECLARE Student : StudentRecord
+DECLARE StudentFile : STRING
+StudentFile <-- "StudentFile.dat"
 ```
 
 ## Types of File Handling
@@ -24,8 +28,6 @@ ENDTYPE
 To search for a specific record, we must read one record at a time.
 
 ```
-DECLARE Student : StudentRecord
-
 # Appending to a Serial File
 OPENFILE StudentFile FOR APPEND
 
@@ -57,8 +59,7 @@ a. Reading each line into an array, inserting the new record into that array, an
 
 b. Creating a new file with the new record inserted where it is supposed to be, and delete the old file.
 
-```pseudocode
-DECLARE Student : StudentRecord
+```
 DECLARE TempStudent : StudentRecord
 DECLARE Flag : BOOLEAN
 
@@ -70,12 +71,21 @@ OPENFILE NewStudentFile FOR WRITE
 flag <-- FALSE
 WHILE NOT flag
     GETRECORD StudentFile, TempStudent
-    IF TempStudent.StudentID > Student.StudentID THEN
+
+    # Insert the new file into it's place
+    IF TempStudent.StudentID < Student.StudentID THEN
         PUTRECORD NewStudentFile, Student
         flag <-- TRUE
     ENDIF
 
     PUTRECORD NewStudentFile, TempStudent
+
+    # In case it is at the very back
+    IF EOF(StudentFile) THEN
+        PUTRECORD NewStudentFile, Student
+        flag <-- TRUE
+    ENDIF
+    
 ENDWHILE
 
 # Add The Remaining Records
@@ -97,3 +107,29 @@ RENAME StudentNewFile, StudentFile
 Random is the most important, because using random files allows us to directly skip to a certain record if we have the hashed address without having to access every other file before.
 
 Random files cannot be opened using READ or WRITE, but rather its own RANDOM. RANDOM allows both reading and writing to the file at the same time.
+
+To avoid overwriting the old values already existing at a given address, you can use either **open hashing** or **closed hashing**. 
+
+a. **Open Hashing** - Go to the given address. If it already has a record keep moving down by one until an open address is found.
+
+b. **Closed Hashing** - Go to the given address. If it already has a record go to a dedicated overflow area to add the record.
+
+```
+DECLARE Address : INTEGER
+
+OPENFILE StudentFile FOR RANDOM
+
+# Get the address based on a hashing function
+Address <-- Hash(Student.StudentID)
+
+# Move the pointer to the address
+SEEK(StudentFile, Address)
+
+# Overwrites the data at the address
+PUTRECORD StudentFile, Student
+
+# Gets the record at the address
+GETRECORD StudentFile, Student
+
+CLOSEFILE StudentFile
+```
