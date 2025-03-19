@@ -5,7 +5,6 @@ class node:
         self.data = data # INTEGER
         self.nextNode = nextNode # INTEGER
 
-
 # b)
 
 linkedList = [
@@ -40,4 +39,36 @@ outputNodes(linkedList, startPointer)
 # d)(i)
 
 def addNode(node_array, start_pointer, free_pointer):
+    global startPointer
+    global emptyList
+    data_to_add = int(input("Enter data: ")) # INTEGER
+
+    if free_pointer == -1:
+        return False
     
+    last_element = start_pointer # INTEGER
+
+    # Update the start_pointer
+    start_pointer = free_pointer
+
+    # Update the heap_pointer
+    free_pointer = node_array[free_pointer].nextNode
+
+    # Overwrite the old data
+    node_array[start_pointer].data = data_to_add
+    
+    # Overwrite the old pointer
+    node_array[start_pointer].nextNode = last_element
+
+    startPointer = start_pointer
+    emptyList = free_pointer
+
+    return True
+
+# (ii) & (iii)
+
+if addNode(linkedList, startPointer, emptyList):
+    print("Node successfully added")
+else:
+    print("linkedlist is full")
+outputNodes(linkedList, startPointer)
