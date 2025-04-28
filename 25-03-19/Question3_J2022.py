@@ -1,12 +1,11 @@
 # 3a)(i)
 
 class Employee:
-    def __init__(self, HourlyPay, EmployeeNumber, JobTitle, PayYear2022):
+    def __init__(self, HourlyPay, EmployeeNumber, JobTitle):
         self.__HourlyPay = HourlyPay # REAL
         self.__EmployeeNumber = EmployeeNumber # STRING
         self.__JobTitle = JobTitle # STRING
-        self.__PayYear2022 = PayYear2022 # OF REAL
-    
+        self.__PayYear2022 = [0.0 for _ in range(52)] # OF REAL
 
     # (ii)
 
@@ -15,8 +14,8 @@ class Employee:
     
     # (iii)
 
-    def SetPay(self, week_no, hour_no, ):
-        self.__PayYear2022[week_no] = hour_no * self.__HourlyPay # INTEGER
+    def SetPay(self, week_no, hour_no):
+        self.__PayYear2022[week_no - 1] = hour_no * self.__HourlyPay # INTEGER
 
     # (iv)
 
@@ -29,14 +28,14 @@ class Employee:
 # b)(i)
 
 class Manager(Employee):
-    def __init__(self, BonusValue, HourlyPay, EmployeeNumber, JobTitle, PayYear2022):
+    def __init__(self, BonusValue, HourlyPay, EmployeeNumber, JobTitle):
         self.__BonusValue = BonusValue # REAL
-        super().__init__(HourlyPay, EmployeeNumber, JobTitle, PayYear2022)
+        super().__init__(HourlyPay, EmployeeNumber, JobTitle)
 
     # (ii)
 
     def SetPay(self, week_no, hour_no):
-        return super().SetPay(week_no, hour_no + self.__BonusValue)
+        return super().SetPay(week_no, hour_no * (1 + self.__BonusValue / 100))
     
 # c)
 
@@ -47,11 +46,40 @@ try:
     for i in range(8):
         hourpay = float(file.readline().strip())
         employeenum = file.readline().strip()
-        bonus = float(file.readline().strip())
-        jobtitle = file.readline().strip()
+        bonusortitle = file.readline().strip()
 
-        EmployeeArray[i] = 
+        try:
+            bonus = float(bonusortitle)
+            title = file.readline().strip()
+            EmployeeArray[i] = Manager(bonus, hourpay, employeenum, title)
+        except:
+            title = bonusortitle
+            EmployeeArray[i] = Employee(hourpay, employeenum, title)
 
+    file.close()
 except FileNotFoundError:
     print("File not found")
 
+# d)
+
+def EnterHours():
+    try:
+        file = open("25-03-19/HoursWeek1.txt", 'r')
+        for i in range(8):
+            employee_num = file.readline().strip()
+            hours = float(file.readline().strip())
+            
+            for j in range(8):
+                if EmployeeArray[j].GetEmployeeNumber() == employee_num:
+                    EmployeeArray[j].SetPay(1, hours)
+                    break
+            
+    except:
+        print("File not found")
+
+# e)(i) & (ii)
+
+EnterHours()
+for employee in EmployeeArray:
+    employee_id = employee.GetEmployeeNumber()
+    print(f"{employee.GetEmployeeNumber()}: {employee.GetTotalPay()}")

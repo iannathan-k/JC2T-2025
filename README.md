@@ -1,6 +1,19 @@
 # Ian Nathan Kusmiantoro
 ### JC2 Truth
 
+## Past Year Papers
+
+[9618_s22_qp_41_Q1](https://github.com/iannathan-k/JC2T-2025/tree/main/25-02-20/question1_mj22_41)\
+[9618_w22_qp_41_Q1](https://github.com/iannathan-k/JC2T-2025/blob/main/25-02-14/Question1_N22.py)\
+[9618_w22_qp_42_Q1](https://github.com/iannathan-k/JC2T-2025/blob/main/25-02-21/Question1_N22.py)\
+[9618_s23_qp_41_Q1](https://github.com/iannathan-k/JC2T-2025/blob/main/25-03-02/Question1_J2023.py)
+
+
+[9618_s21_qp_41](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-18)\
+[9618_s22_qp_42](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-17)\
+[9618_s23_qp_42](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-19)\
+[9618_s24_qp_41](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-13)
+
 ## Shortcuts
 
 1. [Stack](https://github.com/iannathan-k/JC2T-2025/tree/main/25-02-03)
