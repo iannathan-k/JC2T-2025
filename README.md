@@ -9,7 +9,7 @@
 [9618_s23_qp_41_Q1](https://github.com/iannathan-k/JC2T-2025/blob/main/25-03-02/Question1_J2023.py)
 
 
-[9618_s21_qp_41](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-18)\
+[9618_s21_qp_42](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-18)\
 [9618_s22_qp_42](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-17)\
 [9618_s23_qp_42](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-19)\
 [9618_s24_qp_41](https://github.com/iannathan-k/JC2T-2025/tree/main/25-03-13)
