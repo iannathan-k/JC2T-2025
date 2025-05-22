@@ -1,0 +1,16 @@
+Phone,FlashX 2000,TechNova,18,299.99,128
+Phone,MobileOne Pro,AlphaCom,24,249.99,64
+Phone,Vega Z3,QuantumTech,20,349.99,256
+Phone,UltraNova S,CoreX,22,399.99,512
+Phone,SonicPro 5,PixelWorks,16,199.99,32
+Phone,Luxora 8,VisionTech,14,149.99,16
+Laptop,EdgeBook 15,TechNova,10,799.99,16
+Laptop,VisionBook 13,PixelWorks,12,549.99,8
+Laptop,CoreMate 17,QuantumTech,8,1199.99,32
+Laptop,StreamBook X14,TechNova,15,699.99,12
+Laptop,ProTech 16,SmartVision,7,1299.99,64
+Laptop,DataPad 13,NextGen,10,899.99,16
+Tablet,TabX Ultra,HyperNova,15,499.99,10.5
+Tablet,Slate 7 Pro,QuantumTech,18,299.99,8
+Tablet,VisionPad 10,TechNova,12,399.99,12
+Tablet,SuperTab 12,PixelWorks,14,399.99,10

@@ -1,0 +1,14 @@
+Coffee
+Tea
+Lemonade
+Orange juice
+Apple juice
+Pineapple juice
+Grape juice
+Cranberry juice
+Iced tea
+Mango juice
+Hot chocolate
+Milkshake
+Smoothie
+Coconut water
